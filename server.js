@@ -9,7 +9,7 @@ const app = express()
 const cors = require("cors")
 const morgan = require("morgan")
 const Babies = require('./models/BabySchema')
-const Diapers = require('./models/DiaperSchema')
+// const Diapers = require('./models/DiaperSchema')
 const Feeding = require('./models/FeedSchema')
 
 
@@ -201,14 +201,14 @@ app.put("/babies/:id", async (req, res) => {
 //         }
 //     ]).catch((err) => res.send(err))
 //     res.json(feed)
-// })
-// app.get("/feeding", async (req, res) => {
-//     try {
-//         res.json(await Feeding.find({}))
-//     } catch (error) {
-//         res.status(400).json(error)
-//     }
-// })
+
+app.get("/feeding", async (req, res) => {
+    try {
+        res.json(await Feeding.find({}))
+    } catch (error) {
+        res.status(400).json(error)
+    }
+})
 
 //Create
 app.post("/babies/:id/feeding/", async (req, res) => {
