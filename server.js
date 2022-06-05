@@ -124,68 +124,68 @@ app.put("/babies/:id", async (req, res) => {
 
 ///////////////////////////////////////////////////////////////////////////////
 //Diaper
-app.get("/diapers/seed", async (req, res) => {
-    //delete the peeps
-    await Diapers.remove({}).catch((err) => res.send(err))
-    //add your sample baby
-    const diaper = await Diapers.create([
-        {
-            typeofWaste: "both",
-            amountOfNo1: "barely",
-            amountOfNo2: "poopzilla"
-        }
-    ]).catch((err) => res.send(err))
-    res.json(diaper)
-})
+// app.get("/diapers/seed", async (req, res) => {
+//     //delete the peeps
+//     await Diapers.remove({}).catch((err) => res.send(err))
+//     //add your sample baby
+//     const diaper = await Diapers.create([
+//         {
+//             typeofWaste: "both",
+//             amountOfNo1: "barely",
+//             amountOfNo2: "poopzilla"
+//         }
+//     ]).catch((err) => res.send(err))
+//     res.json(diaper)
+// })
 
-// Index Diapers
-app.get("/diapers", async (req, res) => {
-    try {
-        res.json(await Diapers.find({}))
-    } catch (error) {
-        res.status(400).json(error)
-    }
-})
-//Create
-app.post("/diapers/", async (req, res) => {
-    try {
-        res.json(await Diapers.create(req.body))
-    } catch (error) {
-        res.status(400).json(error)
-    }
+// // Index Diapers
+// app.get("/diapers", async (req, res) => {
+//     try {
+//         res.json(await Diapers.find({}))
+//     } catch (error) {
+//         res.status(400).json(error)
+//     }
+// })
+// //Create
+// app.post("/diapers/", async (req, res) => {
+//     try {
+//         res.json(await Diapers.create(req.body))
+//     } catch (error) {
+//         res.status(400).json(error)
+//     }
 
-})
-
-
-//Show
-app.get("/diapers/:id", async (req, res) => {
-    try {
-        res.json(await Diapers.findById(req.params.id))
-    } catch (error) {
-        res.status(400).json(error)
-    }
-})
+// })
 
 
+// //Show
+// app.get("/diapers/:id", async (req, res) => {
+//     try {
+//         res.json(await Diapers.findById(req.params.id))
+//     } catch (error) {
+//         res.status(400).json(error)
+//     }
+// })
 
-//Delete
-app.delete("/diapers/:id", async (req, res) => {
-    try {
-        res.json(await Diapers.findByIdAndDelete(req.params.id))
-    } catch (error) {
-        res.status(400).json(error)
-    }
-})
 
-//Update Route
-app.put("/diapers/:id", async (req, res) => {
-    try {
-        res.json(await Diapers.findByIdAndUpdate(req.params.id, req.body)
-        ) // new:true is not required...
-    } catch (error) {
-        res.status(400).json(error)
-    }
-})
+
+// //Delete
+// app.delete("/diapers/:id", async (req, res) => {
+//     try {
+//         res.json(await Diapers.findByIdAndDelete(req.params.id))
+//     } catch (error) {
+//         res.status(400).json(error)
+//     }
+// })
+
+// //Update Route
+// app.put("/diapers/:id", async (req, res) => {
+//     try {
+//         res.json(await Diapers.findByIdAndUpdate(req.params.id, req.body)
+//         ) // new:true is not required...
+//     } catch (error) {
+//         res.status(400).json(error)
+//     }
+// })
 
 
 ///////////////////////////////////////////////////////////////////////////////
